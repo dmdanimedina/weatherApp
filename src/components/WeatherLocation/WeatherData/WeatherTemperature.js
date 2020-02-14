@@ -12,7 +12,9 @@ const icons = {
     cloudy:"cloudy",
     rain:"rain",
     snow:"snow",
-    windy:"windy"
+    windy:"windy",
+    thunder:"day-thunderstore",
+    drizzle:"day-showers",
 }
 
 const getWeatherIcon = weatherState =>{

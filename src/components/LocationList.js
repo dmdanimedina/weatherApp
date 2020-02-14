@@ -1,13 +1,28 @@
 import React from 'react'
 import WeatherLocation from './WeatherLocation'
 
-const LocationList = () => {
+
+
+const LocationList = ({cities,onSelectedLocation}) => {
+    const handleWeatherLocationClick = city => {
+        console.log("WeatherLocation :"+city)
+        onSelectedLocation(city)
+    }
+    const srtToComponents = cities => (
+        cities.map( (city,index) => (
+            <WeatherLocation 
+                index={index} key={index+'_'+city} city={city}
+                onWeatherLocationClick={()=>handleWeatherLocationClick(city)}
+                >                    
+                </WeatherLocation>
+        ))
+    )
+
+
+
     return(
         <div>
-            <WeatherLocation city="Santiago,cl"></WeatherLocation>
-            <WeatherLocation city="Buenos Aires,ar"></WeatherLocation>
-            <WeatherLocation city="Bogota,col"></WeatherLocation>
-            <WeatherLocation city="Mexico,mex"></WeatherLocation>
+            {srtToComponents(cities)}
             <br/>
         </div>
     )

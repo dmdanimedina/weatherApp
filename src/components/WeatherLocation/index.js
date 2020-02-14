@@ -25,12 +25,12 @@ class WeatherLocation extends Component{
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
+       // console.log('componentDidMount');
         this.handleUpdateClick() 
     }
 
     componentDidUpdate(){
-        console.log('componentDidUpdate'); 
+       // console.log('componentDidUpdate'); 
               
     }
 
@@ -41,7 +41,7 @@ class WeatherLocation extends Component{
         fetch(rutaWeather).then(resolve=>{            
             return resolve.json()
         }).then(data =>{   
-            console.log(transformationWeather(data))         
+            //console.log(transformationWeather(data))         
             this.setState({data:transformationWeather(data)});
         })      
         
@@ -62,11 +62,15 @@ class WeatherLocation extends Component{
     }
     */   
 
+    
+
     render(){
-        console.log('render')
+        // console.log('render')
+            const { onWeatherLocationClick } = this.props
             const { city,data} = this.state
+                //console.log("Location : "+ city);
         return (
-            <div className="weatherLocationCont">
+            <div className="weatherLocationCont" onClick={onWeatherLocationClick}>
                 <Location city={city}></Location>
                 {data ? 
                     <WeatherData data={data}></WeatherData> 
