@@ -1,5 +1,6 @@
 import React from 'react'
 import WeatherLocation from './WeatherLocation'
+import './style.css';
 
 
 
@@ -21,7 +22,7 @@ const LocationList = ({cities,onSelectedLocation}) => {
 
 
     return(
-        <div>
+        <div className="locationList">
             {srtToComponents(cities)}
             <br/>
         </div>
